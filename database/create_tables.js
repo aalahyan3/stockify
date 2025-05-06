@@ -9,7 +9,8 @@ const STOCK_QUERY =
 		price INT NOT NULL,
 		category VARCHAR(255),
 		stock_date DATE,
-		stock_place VARCHAR(255)
+		stock_place VARCHAR(255),
+		reference VARCHAR(255)
 	)
 `
 
