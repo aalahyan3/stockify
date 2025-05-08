@@ -3,12 +3,11 @@ import DbClinet from "../database/db.js";
 import { HashPassword } from "../utils/Hashpassword.js";
 import { randomUUID } from "crypto";
 import jwt from "jsonwebtoken";
-import dotenv from 'dotenv'
+
 
 
 
 const generateToken = (id, username) =>{
-	dotenv.config()
 
 	const secret = process.env.JWT_SECRET_KEY
 	const payload = {id, username}
@@ -36,14 +35,15 @@ const SignUp = async  (req, res) =>{
 		const checker = await DbClinet.query("SELECT * FROM users WHERE username = $1 OR email = $2", [username, email])
 		if (checker.rows.length != 0){
 			throw new Error("Username or Email Alread Exist")
-		}
+		} 
 		await DbClinet.query(query, [Id, username, email, HashedPassword, 'costumer'])
 		const token = generateToken(Id, username)
 		res.setHeader('Authorization', `Bearer ${token}`)
 		return res.status(200).send(
 			{
 				"success": true,
-				"message": "Access granted for the next one hour"
+				"message": "Access granted for the next one hour",
+				"token": token
 			}
 		)
 	}catch(err)

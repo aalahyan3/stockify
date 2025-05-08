@@ -1,11 +1,11 @@
 import express from "express"
 import apiRouter from "./routes/api.js";
-
+import dotenv from 'dotenv'
 const app = express()
 const PORT = 3030
 
 app.use(express.json())
-
+dotenv.config()
 app.get("/", (req, res) => {
 	res.send({
 		"options": ["get", "add", "delete"],
