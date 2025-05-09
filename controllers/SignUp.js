@@ -43,7 +43,7 @@ const SignUp = async  (req, res) =>{
 			{
 				"success": true,
 				"message": "Access granted for the next one hour",
-				"token": token
+				"token": token // This remains only while testing api
 			}
 		)
 	}catch(err)
@@ -57,3 +57,4 @@ const SignUp = async  (req, res) =>{
 	}
 }
 export default SignUp
+export {generateToken}

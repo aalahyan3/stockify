@@ -1,10 +1,3 @@
 import DbClinet from "./database/db.js";
 
-try {
-  await DbClinet.query('BEGIN');
-  await DbClinet.query("DELETE FROM users");
-  await DbClinet.query('COMMIT');
-} catch (err) {
-  await DbClinet.query('ROLLBACK');
-  throw err;
-}
+await DbClinet.query("INSERT INTO users VALUES(0100, 'admin', 'admin', 'admin', ' ')")
