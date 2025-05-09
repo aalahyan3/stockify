@@ -16,7 +16,7 @@ const Authentication = async (req, res, next) =>{
 			throw new Error("Token is not valid")
 		}
 		else{
-			req.user = {username}
+			req.user = {username, "role": result.rows[0].role}
 			next()
 		}
 	}catch(err)

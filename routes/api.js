@@ -4,10 +4,13 @@ import createStock from "../controllers/CreateStock.js";
 import SignUp from "../controllers/SignUp.js";
 import Authentication from "../middlewares/Authentication.js";
 import Login from "../controllers/Login.js";
+import DeleteStock from "../controllers/Deletetock.js";
 const router = express.Router();
 
 router.get("/get", Authentication, getStock)
 router.post("/create", Authentication ,createStock)
 router.post("/signup", SignUp)
 router.post("/login", Login)
+router.delete("/delete", Authentication, DeleteStock)
+
 export default router
