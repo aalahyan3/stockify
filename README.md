@@ -1,6 +1,6 @@
 # Stockify 🛒
 
-Stockify is a web application designed to manage and track stock items for businesses or personal use. It allows admins to perform CRUD (Create, Read, Update, Delete) operations on stock data and provides secure authentication for users. 🔒
+Stockify is a backend application designed to manage and track stock items for businesses or personal use. It allows admins to perform CRUD (Create, Read, Update, Delete) operations on stock data and provides secure authentication for users. 🔒
 
 ---
 
