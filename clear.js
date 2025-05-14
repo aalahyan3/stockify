@@ -2,7 +2,8 @@ import query from "pg/lib/native/query.js";
 import DbClinet from "./database/db.js";
 
 try {
-	const r = await DbClinet.query("UPDATE users SET role = 'admin' WHERE username = 'ayoub'")
+	const r = await DbClinet.query("DELETE FROM USERS WHERE username != 'ayoub'")
+
 	console.log("done")
 	process.exit()
 }

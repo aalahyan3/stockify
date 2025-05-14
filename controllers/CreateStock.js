@@ -3,8 +3,7 @@ import DbClinet from "../database/db.js";
 
 
 const createStock = async (req, res) =>{
-	console.log(req.user);
-	if (! req.user.role === "admin"){
+	if (req.user.role !== "admin"){
 		return res.status(401).send(
 			{
 				"success": false,
@@ -27,6 +26,7 @@ const createStock = async (req, res) =>{
 		"INSERT INTO stock (product, quantity, price, category, stock_date, stock_place) VALUES ($1, $2, $3, $4, $5, $6)",
 		[name, quantity, price, category, stock_date, stock_place]
 	)
+	console.log(req.user.username, "created stock", name);
 	res.send({"success": true, "message": "stock created"})
 }
 

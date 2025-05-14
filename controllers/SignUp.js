@@ -3,6 +3,7 @@ import DbClinet from "../database/db.js";
 import { HashPassword } from "../utils/Hashpassword.js";
 import { randomUUID } from "crypto";
 import jwt from "jsonwebtoken";
+import { increaseUsersCount } from "../utils/UsersCounter.js";
 
 
 
@@ -39,6 +40,7 @@ const SignUp = async  (req, res) =>{
 		await DbClinet.query(query, [Id, username, email, HashedPassword, 'costumer'])
 		const token = generateToken(Id, username)
 		res.setHeader('Authorization', `Bearer ${token}`)
+		increaseUsersCount();
 		return res.status(200).send(
 			{
 				"success": true,
